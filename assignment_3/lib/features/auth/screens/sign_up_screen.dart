@@ -1,5 +1,6 @@
 import 'package:assignment_3/constants/gaps.dart';
 import 'package:assignment_3/constants/sizes.dart';
+import 'package:assignment_3/features/auth/screens/verify_email_screen.dart';
 import 'package:assignment_3/features/auth/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,6 +20,11 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  void _onNextStep() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => VerifyEmailScreen(email: widget.email)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Button(
             text: 'Sign up',
             color: Theme.of(context).primaryColor,
-            onTap: () {}),
+            onTap: _onNextStep),
       )),
     );
   }

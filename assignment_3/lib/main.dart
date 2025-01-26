@@ -1,5 +1,5 @@
 import 'package:assignment_3/constants/sizes.dart';
-import 'package:assignment_3/features/auth/screens/initial_screen.dart';
+import 'package:assignment_3/features/auth/screens/verify_email_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const InitialScreen(),
+      home: const VerifyEmailScreen(),
     );
   }
 }
