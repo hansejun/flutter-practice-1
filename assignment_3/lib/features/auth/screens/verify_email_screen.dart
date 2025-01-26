@@ -1,5 +1,6 @@
 import 'package:assignment_3/constants/gaps.dart';
 import 'package:assignment_3/constants/sizes.dart';
+import 'package:assignment_3/features/auth/screens/password_form_screen.dart';
 import 'package:assignment_3/features/auth/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,6 +31,13 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
       FocusScope.of(context).nextFocus();
     }
     setState(() {});
+  }
+
+  void _onTapNext() {
+    if (_isCodeComplete()) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => PasswordFormScreen()));
+    }
   }
 
   @override
@@ -125,7 +133,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
             color: _isCodeComplete()
                 ? Theme.of(context).primaryColor
                 : Colors.grey.shade400,
-            onTap: () {}),
+            onTap: () {
+              _onTapNext();
+            }),
       )),
     );
   }
